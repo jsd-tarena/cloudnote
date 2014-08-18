@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tarena.cloudnote.dao.UserMybatisDao">
+
+	<!-- 获取用户: 输出直接映射到对象, 列名和字段名要进行处理，如：cn_user_id列要"as cnUserId"以方便映射 -->
+	<select id="getUserByName" parameterType="map"
+		resultType="com.tarena.cloudnote.entity.User">
+		select
+		cn_user_id as cnUserId,
+		cn_user_name as cnUserName,
+		cn_user_password as cnUserPassword,
+		cn_user_token as cnUserToken,
+		cn_user_desc as cnUserDesc
+		from cn_user
+		where cn_user_name=#{cnUserName}
+	</select>
+</mapper> 
